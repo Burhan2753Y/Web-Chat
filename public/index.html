@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatNow</title>
+    <style>
+        .content {
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .content img {
+            grid-row: 1/4;
+        }
+
+        .content h4 {
+            margin: 0;
+        }
+
+        .content p {
+            grid-row: 2/4;
+        }
+
+        .buttons {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>ChatNow</h1>
+    </header>
+    <div class="content">
+        <img src="/images/image.png" width="700" height="350">
+        <h4>ChatNow</h4>
+        <p>Chat in RealTime with your friends annoymously without saving chats. Create a Room and share the code with
+            your friends and let them join the room. And chat with your friends secretly. Create a room from below and share your url with others.</p>
+    </div>
+    <div class="buttons">
+        <button onclick="createRoom()">Create Room</button>
+        <button onclick="joinRoom()">Join Room</button>
+        <p id="status"></p>
+    </div>
+    <script>
+        function joinRoom() {
+            let code = prompt("Please enter your Code:", "");
+            if (code == null || code == "") {
+                const status = document.getElementById("status");
+                status.innerText = "Invalid Code";
+            } else {
+                window.location.href ="/room/"+code;
+            }
+        }
+        function createRoom() {
+            window.location.href ="/room/";
+        }
+
+    </script>
+</body>
+
+</html>
